@@ -1,0 +1,4 @@
+C:\cygwin64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/usr/bin/make.exe -DCMAKE_C_COMPILER=/usr/bin/gcc.exe -DCMAKE_CXX_COMPILER=/usr/bin/c++.exe -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/ranvi/Documents/Documents/Programming/Miscellaneous projects/C++/BankingApplication"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Users/ranvi/Documents/Documents/Programming/Miscellaneous projects/C++/BankingApplication/cmake-build-debug

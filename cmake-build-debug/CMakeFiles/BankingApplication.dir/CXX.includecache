@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/ranvi/Documents/Documents/Programming/Miscellaneous projects/C++/BankingApplication/main.cpp
+iostream
+-
+map
+-
+list
+-
+
