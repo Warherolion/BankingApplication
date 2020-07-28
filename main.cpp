@@ -27,24 +27,58 @@ struct Bank{
     map<string, list<string>> transactions;
 };
 
-map<int, Bank> AccountMap;
+bool userLogged = false;
+
+
+
+void login(){
+
+}
+void AdminLogin(){
+
+}
+//Used if userLogged is false meaning the user is logged out
+int loginMenu(){
+    int userChoice;
+    cout << "You are not logged in, please pick on of the options below" << endl;
+    cout << "1. Bank user login" << endl;
+    cout << "2. Bank representative login" << endl;
+
+    cout << "Please enter a selection: ";
+    cin >> userChoice;
+
+
+    try {
+        if (userChoice == 1){
+            login();
+        }else if (userChoice == 2){
+            AdminLogin();
+        } else {
+            cout << "Please enter a valid entry";
+            cin >> userChoice;
+        }
+    } catch (...) {
+        cout << "Please enter a valid input";
+    }
+
+    return userChoice;
+}
+
+//Used if the user has logged in
+void userMenu(){
+
+}
+
+void loggedCheck(){
+    if (!userLogged){
+        loginMenu();
+    }else if (userLogged){
+        userMenu();
+    }
+}
 
 int main() {
-
-
-
-
+    loggedCheck();
     return 0;
 }
 
-void createNewAccount(){
-    cout << "Please enter your user name" << endl;
-
-    
-
-
-
-    AccountMap.size();
-
-
-}
