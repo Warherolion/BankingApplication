@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <list>
+#include "json-develop/single_include/nlohmann/json.hpp"
 using namespace std;
 
 
@@ -16,14 +17,13 @@ using namespace std;
 */
 
 struct Bank{
-    string userName;
+    long CardNums;
     string password;
     string legalName;
-    int accountNum;
     string accountType;
-    map<string, int> accountBal;
+    int accountBal;
     list<string> recPayments;
-    map<string, int> CardNums;
+    int accountNum;
     map<string, list<string>> transactions;
 };
 

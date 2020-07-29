@@ -1,8 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/BankingApplication.dir/main.cpp.o"
+  "BankingApplication"
   "BankingApplication.pdb"
-  "BankingApplication.exe"
-  "libBankingApplication.dll.a"
+  "CMakeFiles/BankingApplication.dir/main.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

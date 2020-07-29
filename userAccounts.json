@@ -1,0 +1,90 @@
+{
+  "BankOrg": "Sugar Banking",
+  "Year": 2020,
+  "numOfUsers": 1000,
+  "adminUsers": [
+    {
+      "Name": "Jenny",
+      "job": "CEO",
+      "Clearance": "total"
+    }
+  ],
+  "members": [
+    {
+      "accountNumber": 4518897954720124,
+      "password": "12345678",
+      "legalName": "John Doe",
+      "accountType": "chequing",
+      "accountBalance": 4000,
+      "reoccurringPayments": [
+        {
+          "Payee": "CRA",
+          "amount": 1000,
+          "installmentPeriod": "Month"
+        },
+        {
+          "Payee": "Paypal",
+          "amount": 100,
+          "installmentPeriod": "Week"
+        },
+        {
+          "Payee": "Ranvir Singh",
+          "amount": 152,
+          "installmentPeriod": "2 Months"
+        }
+      ],
+      "transactionHistory":
+      [
+        {
+          "Name": "Sams Dildo shop",
+          "amount": 452,
+          "date": "11/07/2020"
+        },
+        {
+          "Name": "Walmart",
+          "amount": 32,
+          "date": "10/07/2020"
+        }
+      ]
+    },
+    {
+      "accountNumber": 45188979654730120,
+      "password": "Password",
+      "legalName": "James Doe",
+      "accountType": "chequing",
+      "accountBalance": 4000,
+      "reoccurringPayments": [
+        {
+          "Payee": "CRA",
+          "amount": 1000,
+          "installmentPeriod": "Month"
+        },
+        {
+          "Payee": "Paypal",
+          "amount": 100,
+          "installmentPeriod": "Week"
+        },
+        {
+          "Payee": "Ranvir Singh",
+          "amount": 152,
+          "installmentPeriod": "2 Months"
+        }
+      ],
+      "transactionHistory":
+      [
+        {
+          "Name": "James Dildo shop",
+          "amount": 452,
+          "date": "11/07/2020"
+        },
+        {
+          "Name": "Walmart",
+          "amount": 32,
+          "date": "10/07/2020"
+        }
+      ]
+    }
+
+  ]
+}
+
