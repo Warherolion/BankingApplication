@@ -1,9 +1,10 @@
 #include <iostream>
 #include <map>
 #include <list>
+#include <fstream>
 #include "json-develop/single_include/nlohmann/json.hpp"
 using namespace std;
-
+using json = nlohmann::json;
 
 /*
  * based on bank application idea from the internet,
@@ -78,7 +79,16 @@ void loggedCheck(){
 }
 
 int main() {
-    loggedCheck();
+    json j;
+    fstream i("/Users/ranvirsingh/Documents/GitHub/BankingApplication/userAccounts.json");
+    j = json::parse(i);
+
+    string s = j.dump();
+
+
+
+
+    //loggedCheck();
     return 0;
 }
 
