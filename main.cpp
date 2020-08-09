@@ -5,6 +5,19 @@
 #include "json-develop/single_include/nlohmann/json.hpp"
 using namespace std;
 using json = nlohmann::json;
+namespace BU {
+    struct bank{
+        long CardNums;
+        string password;
+        string legalName;
+        string accountType;
+        int accountBal;
+        list<string> recPayments;
+        int accountNum;
+        map<string, list<string>> transactions;
+    };
+}
+
 
 /*
  * based on bank application idea from the internet,
@@ -83,8 +96,27 @@ int main() {
     fstream i("/Users/ranvirsingh/Documents/GitHub/BankingApplication/userAccounts.json");
     j = json::parse(i);
 
-    string s = j.dump();
 
+    BU::bank user;
+
+    string jsonDump;
+
+    jsonDump = j.dump();
+
+
+    //cout << jsonDump;
+
+
+
+
+    auto test = j["members"].get<array<string, 2>>();
+
+
+    for (int i = 2 - 1; i >= 0; i--)
+        cout << test[i];
+
+
+    //cout << test;
 
 
 
