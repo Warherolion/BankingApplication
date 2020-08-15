@@ -1,14 +1,4 @@
 {
-  "BankOrg": "Sugar Banking",
-  "Year": 2020,
-  "numOfUsers": 1000,
-  "adminUsers": [
-    {
-      "Name": "Jenny",
-      "job": "CEO",
-      "Clearance": "total"
-    }
-  ],
   "members": [
     {
       "accountNumber": 4518897954720124,

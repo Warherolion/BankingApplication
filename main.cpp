@@ -3,18 +3,19 @@
 #include <list>
 #include <fstream>
 #include "json-develop/single_include/nlohmann/json.hpp"
-using namespace std;
 using json = nlohmann::json;
+
+
 namespace BU {
     struct bank{
         long CardNums;
-        string password;
-        string legalName;
-        string accountType;
+        std::string password;
+        std::string legalName;
+        std::string accountType;
         int accountBal;
-        list<string> recPayments;
+        std::list<std::string> recPayments;
         int accountNum;
-        map<string, list<string>> transactions;
+        std::map<std::string, std::list<std::string>> transactions;
     };
 }
 
@@ -32,95 +33,51 @@ namespace BU {
 
 struct Bank{
     long CardNums;
-    string password;
-    string legalName;
-    string accountType;
+    std::string password;
+    std::string legalName;
+    std::string accountType;
     int accountBal;
-    list<string> recPayments;
-    int accountNum;
-    map<string, list<string>> transactions;
+    std::list<std::string> recPayments;
+    std::map<std::string, std::list<std::string>> transactions;
 };
 
-bool userLogged = false;
 
-
-
-void login(){
-
+void from_json(const nlohmann::json& userAccount, Bank& bankUser) {
+    userAccount.at("accountNumber").get_to(bankUser.CardNums);
+    userAccount.at("password").get_to(bankUser.password);
+    userAccount.at("legalName").get_to(bankUser.legalName);
+    userAccount.at("accountType").get_to(bankUser.accountType);
+    userAccount.at("accountBalance").get_to(bankUser.accountBal);
+    userAccount.at("reoccurringPayments").get_to(bankUser.recPayments);
+    userAccount.at("transactionHistory").get_to(bankUser.transactions);
 }
-void AdminLogin(){
 
-}
-//Used if userLogged is false meaning the user is logged out
-int loginMenu(){
-    int userChoice;
-    cout << "You are not logged in, please pick on of the options below" << endl;
-    cout << "1. Bank user login" << endl;
-    cout << "2. Bank representative login" << endl;
-
-    cout << "Please enter a selection: ";
-    cin >> userChoice;
-
-
-    try {
-        if (userChoice == 1){
-            login();
-        }else if (userChoice == 2){
-            AdminLogin();
-        } else {
-            cout << "Please enter a valid entry";
-            cin >> userChoice;
-        }
-    } catch (...) {
-        cout << "Please enter a valid input";
+template <typename T, size_t N>
+void from_json(const nlohmann::json& userAccount, T (&t)[N]) {
+    if (userAccount.size() > N) {
+        throw std::runtime_error("JSON array too large");
     }
-
-    return userChoice;
-}
-
-//Used if the user has logged in
-void userMenu(){
-
-}
-
-void loggedCheck(){
-    if (!userLogged){
-        loginMenu();
-    }else if (userLogged){
-        userMenu();
+    size_t index = 0;
+    for (auto& item : userAccount) {
+        from_json(item, t[index++]);
     }
 }
 
 int main() {
-    json j;
-    fstream i("/Users/ranvirsingh/Documents/GitHub/BankingApplication/userAccounts.json");
-    j = json::parse(i);
+
+    json userAccount;
+    std::ifstream userAccountFile("/Users/ranvirsingh/Documents/GitHub/BankingApplication/userAccounts.json");
+    userAccount = json::parse(userAccountFile);
+
+    Bank parsed[2];
+    from_json(userAccount, parsed);
+
+    auto testDump = userAccount["members"].get<std::array<Bank, 2>>();
 
 
-    BU::bank user;
-
-    string jsonDump;
-
-    jsonDump = j.dump();
+    std::cout << testDump;
 
 
-    //cout << jsonDump;
-
-
-
-
-    auto test = j["members"].get<array<string, 2>>();
-
-
-    for (int i = 2 - 1; i >= 0; i--)
-        cout << test[i];
-
-
-    //cout << test;
-
-
-
-    //loggedCheck();
     return 0;
 }
 
